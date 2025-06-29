@@ -1,26 +1,210 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Shubham Nagariya | Portfolio</title>
-    <link rel="stylesheet" href="/static/style.css">
+  <meta charset="UTF-8" />
+  <title>Shubham Nagariya | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-color: #f8f9fa;
+      --text-color: #212529;
+      --card-bg: #ffffff;
+      --input-bg: #ffffff;
+      --border-color: #dee2e6;
+      --link-color: #0d6efd;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #e4e4e4;
+      --card-bg: #1e1e1e;
+      --input-bg: #2a2a2a;
+      --border-color: #444;
+      --link-color: #66b2ff;
+      --shadow: rgba(255, 255, 255, 0.05);
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Segoe UI', sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--text-color);
+    }
+
+    .btn-toggle {
+      position: fixed;
+      right: 20px;
+      top: 20px;
+      z-index: 1000;
+    }
+
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: .5rem;
+      box-shadow: 0 0 8px var(--shadow);
+    }
+
+    .project-card {
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      border-radius: 12px;
+      transition: transform 0.3s ease-in-out, background-color 0.3s;
+      box-shadow: 0 8px 24px var(--shadow);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    input, textarea {
+      background-color: var(--input-bg);
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--link-color);
+      box-shadow: none;
+      background-color: var(--input-bg);
+      color: var(--text-color);
+    }
+
+    .section-title {
+      border-bottom: 2px solid var(--link-color);
+      padding-bottom: 5px;
+      display: inline-block;
+    }
+
+    footer {
+      background-color: var(--card-bg);
+      border-top: 1px solid var(--border-color);
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Hi, I'm Shubham Nagariya</h1>
-        <p>Python Developer | Data Analyst | DevOps Learner</p>
 
-        <h2>Projects</h2>
-        <ul>
-            <li>DevOps Monitoring with Flask + Grafana + Docker</li>
-            <li>Interactive Power BI Sales Dashboard</li>
-            <li>IAM Automation using BeanShell & SQL</li>
-        </ul>
+  <button onclick="toggleDarkMode()" class="btn btn-sm btn-outline-secondary btn-toggle">🌙</button>
 
-        <h2>Skills</h2>
-        <p>Python, SQL, Power BI, Flask, Docker, Git, Jenkins, Linux</p>
-
-        <h2>Resume</h2>
-        <a href="/static/Shubham_Resume.pdf" download>Download My Resume</a>
+  <!-- Header -->
+  <header class="bg-primary text-white text-center py-5 mb-4">
+    <div class="container d-flex flex-column flex-sm-row align-items-center justify-content-center gap-4">
+      <img src="{{ url_for('static', filename='shubham.jpg') }}" alt="Shubham" class="profile-img" />
+      <div>
+        <h1 class="mb-1">Shubham Nagariya</h1>
+        <p class="lead mb-0">Python Developer • Data Analyst • DevOps Enthusiast</p>
+      </div>
     </div>
+  </header>
+
+  <div class="container">
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="alert alert-success text-center">{{ messages[0] }}</div>
+    {% endif %}
+    {% endwith %}
+
+    <!-- About -->
+    <section id="about" class="mb-5" data-aos="fade-up">
+      <h2 class="fw-bold section-title">About Me</h2>
+      <p>I am Shubham, an IT professional with 3.6+ years at TCS in Python automation, IAM & DevOps tools. I love building things with Python, exploring monitoring systems, and simplifying complex processes through automation.</p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="mb-5">
+      <h2 class="fw-bold section-title" data-aos="fade-right">Projects</h2>
+      <div class="row">
+
+        <div class="col-md-4 mb-4" data-aos="zoom-in-up">
+          <div class="card h-100 border-0 project-card" style="border-top: 6px solid #0d6efd;">
+            <div class="card-body">
+              <h5 class="card-title">DevOps Monitoring App</h5>
+              <p class="card-text">Flask + Docker + Prometheus + Grafana for auto-monitoring cloud apps.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4" data-aos="zoom-in-up" data-aos-delay="100">
+          <div class="card h-100 border-0 project-card" style="border-top: 6px solid #20c997;">
+            <div class="card-body">
+              <h5 class="card-title">Power BI Dashboard</h5>
+              <p class="card-text">Sales KPIs, YoY & MTD analytics with slicers and filters.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4" data-aos="zoom-in-up" data-aos-delay="200">
+          <div class="card h-100 border-0 project-card" style="border-top: 6px solid #fd7e14;">
+            <div class="card-body">
+              <h5 class="card-title">IAM Automation</h5>
+              <p class="card-text">Automated provisioning with SQL + BeanShell in IAM systems.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="mb-5" data-aos="fade-up">
+      <h2 class="fw-bold section-title">Skills</h2>
+      <div class="row text-center">
+        <div class="col-md-4 mb-2"><span class="badge bg-secondary">Python • SQL • JS</span></div>
+        <div class="col-md-4 mb-2"><span class="badge bg-secondary">Power BI • Git • Docker</span></div>
+        <div class="col-md-4 mb-2"><span class="badge bg-secondary">Flask • Prometheus • Grafana</span></div>
+      </div>
+    </section>
+
+    <!-- Resume -->
+    <section class="mb-5 text-center" data-aos="fade-up">
+      <a href="{{ url_for('static', filename='resume.pdf') }}" download class="btn btn-outline-primary">
+        📄 Download Resume
+      </a>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="mb-5" data-aos="fade-up">
+      <h2 class="fw-bold section-title text-center mb-4">Contact Me</h2>
+      <form method="POST" action="/contact" class="row g-3 justify-content-center">
+        <div class="col-md-4"><input type="text" class="form-control" name="name" placeholder="Your Name" required /></div>
+        <div class="col-md-4"><input type="email" class="form-control" name="email" placeholder="Your Email" required /></div>
+        <div class="col-8"><textarea class="form-control" name="message" rows="4" placeholder="Your Message..." required></textarea></div>
+        <div class="col-8 text-center"><button type="submit" class="btn btn-primary">Send Message</button></div>
+      </form>
+    </section>
+
+  </div>
+
+  <footer class="text-center py-4">
+    <small>&copy; 2025 Shubham Nagariya. All rights reserved.</small>
+  </footer>
+
+  <!-- JS Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+    }
+
+    // Apply saved theme on page load
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark-mode");
+    }
+  </script>
 </body>
 </html>
