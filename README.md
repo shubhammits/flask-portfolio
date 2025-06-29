@@ -34,3 +34,14 @@ It showcases my professional profile, projects, skills, resume download, and a w
 
 ## 📂 Folder Structure
 
+flask-portfolio/
+│
+├── app.py # Flask backend
+├── requirements.txt
+├── static/
+│ ├── resume.pdf # Resume file
+│ └── shubham.jpg # Profile picture
+├── templates/
+│ └── index.html # Main HTML file
+└── README.md
+
