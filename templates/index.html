@@ -38,7 +38,7 @@
     .btn-toggle {
       position: fixed;
       right: 20px;
-      top: 20px;
+      top: 50px;
       z-index: 1000;
     }
 
@@ -84,16 +84,22 @@
       border-top: 1px solid var(--border-color);
     }
 
-    /* 🔔 UNDER CONSTRUCTION BANNER */
+    header {
+      margin-top: 60px; /* offset for under-progress bar */
+    }
+
+    /* UNDER CONSTRUCTION BANNER */
     #under-progress {
       background-color: #ffcc00;
       color: #000;
       font-weight: bold;
       font-size: 1.1rem;
-      animation: slide-left 10s linear infinite;
-      text-align: center;
-      padding: 8px 0;
-      z-index: 1000;
+      width: 100vw;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      padding: 5px 0;
     }
 
     body.dark-mode #under-progress {
@@ -109,11 +115,6 @@
       0%, 100% { opacity: 1; }
       50% { opacity: 0.2; }
     }
-
-    @keyframes slide-left {
-      0%   { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
   </style>
 </head>
 
@@ -121,7 +122,9 @@
 
   <!-- 🔔 Under Construction Banner -->
   <div id="under-progress">
-    ⚠️ <span class="blinking">NOTE:</span> This website is still under development. Features are being added.
+    <marquee behavior="scroll" direction="left">
+      ⚠️ <span class="blinking">NOTE:</span> This website is still under development. Features are being added.
+    </marquee>
   </div>
 
   <button onclick="toggleDarkMode()" class="btn btn-sm btn-outline-secondary btn-toggle">🌙</button>
@@ -231,7 +234,6 @@
       localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
     }
 
-    // Load saved theme
     if (localStorage.getItem("theme") === "dark") {
       document.body.classList.add("dark-mode");
     }
