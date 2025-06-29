@@ -35,10 +35,6 @@
       transition: all 0.3s ease;
     }
 
-    h1, h2, h3, h4, h5, h6 {
-      color: var(--text-color);
-    }
-
     .btn-toggle {
       position: fixed;
       right: 20px;
@@ -75,8 +71,6 @@
     input:focus, textarea:focus {
       border-color: var(--link-color);
       box-shadow: none;
-      background-color: var(--input-bg);
-      color: var(--text-color);
     }
 
     .section-title {
@@ -89,10 +83,46 @@
       background-color: var(--card-bg);
       border-top: 1px solid var(--border-color);
     }
+
+    /* 🔔 UNDER CONSTRUCTION BANNER */
+    #under-progress {
+      background-color: #ffcc00;
+      color: #000;
+      font-weight: bold;
+      font-size: 1.1rem;
+      animation: slide-left 10s linear infinite;
+      text-align: center;
+      padding: 8px 0;
+      z-index: 1000;
+    }
+
+    body.dark-mode #under-progress {
+      background-color: #ffbb00;
+      color: #111;
+    }
+
+    .blinking {
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+
+    @keyframes slide-left {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- 🔔 Under Construction Banner -->
+  <div id="under-progress">
+    ⚠️ <span class="blinking">NOTE:</span> This website is still under development. Features are being added.
+  </div>
 
   <button onclick="toggleDarkMode()" class="btn btn-sm btn-outline-secondary btn-toggle">🌙</button>
 
@@ -201,7 +231,7 @@
       localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
     }
 
-    // Apply saved theme on page load
+    // Load saved theme
     if (localStorage.getItem("theme") === "dark") {
       document.body.classList.add("dark-mode");
     }
