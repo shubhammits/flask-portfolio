@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
   <style>
     :root {
       --bg-color: #f8f9fa;
@@ -17,7 +16,6 @@
       --link-color: #0d6efd;
       --shadow: rgba(0, 0, 0, 0.1);
     }
-
     body.dark-mode {
       --bg-color: #121212;
       --text-color: #e4e4e4;
@@ -27,21 +25,18 @@
       --link-color: #66b2ff;
       --shadow: rgba(255, 255, 255, 0.05);
     }
-
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
       font-family: 'Segoe UI', sans-serif;
       transition: all 0.3s ease;
     }
-
     .btn-toggle {
       position: fixed;
       right: 20px;
       top: 50px;
       z-index: 1000;
     }
-
     .profile-img {
       width: 160px;
       height: 160px;
@@ -49,7 +44,6 @@
       border-radius: .5rem;
       box-shadow: 0 0 8px var(--shadow);
     }
-
     .project-card {
       background-color: var(--card-bg);
       color: var(--text-color);
@@ -57,38 +51,30 @@
       transition: transform 0.3s ease-in-out, background-color 0.3s;
       box-shadow: 0 8px 24px var(--shadow);
     }
-
     .project-card:hover {
       transform: translateY(-5px);
     }
-
     input, textarea {
       background-color: var(--input-bg);
       color: var(--text-color);
       border: 1px solid var(--border-color);
     }
-
     input:focus, textarea:focus {
       border-color: var(--link-color);
       box-shadow: none;
     }
-
     .section-title {
       border-bottom: 2px solid var(--link-color);
       padding-bottom: 5px;
       display: inline-block;
     }
-
     footer {
       background-color: var(--card-bg);
       border-top: 1px solid var(--border-color);
     }
-
     header {
-      margin-top: 60px; /* offset for under-progress bar */
+      margin-top: 60px;
     }
-
-    /* UNDER CONSTRUCTION BANNER */
     #under-progress {
       background-color: #ffcc00;
       color: #000;
@@ -101,16 +87,13 @@
       z-index: 9999;
       padding: 5px 0;
     }
-
     body.dark-mode #under-progress {
       background-color: #ffbb00;
       color: #111;
     }
-
     .blinking {
       animation: blink 1s infinite;
     }
-
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.2; }
@@ -142,12 +125,6 @@
 
   <div class="container">
 
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-      <div class="alert alert-success text-center">{{ messages[0] }}</div>
-    {% endif %}
-    {% endwith %}
-
     <!-- About -->
     <section id="about" class="mb-5" data-aos="fade-up">
       <h2 class="fw-bold section-title">About Me</h2>
@@ -158,7 +135,6 @@
     <section id="projects" class="mb-5">
       <h2 class="fw-bold section-title" data-aos="fade-right">Projects</h2>
       <div class="row">
-
         <div class="col-md-4 mb-4" data-aos="zoom-in-up">
           <div class="card h-100 border-0 project-card" style="border-top: 6px solid #0d6efd;">
             <div class="card-body">
@@ -167,7 +143,6 @@
             </div>
           </div>
         </div>
-
         <div class="col-md-4 mb-4" data-aos="zoom-in-up" data-aos-delay="100">
           <div class="card h-100 border-0 project-card" style="border-top: 6px solid #20c997;">
             <div class="card-body">
@@ -176,7 +151,6 @@
             </div>
           </div>
         </div>
-
         <div class="col-md-4 mb-4" data-aos="zoom-in-up" data-aos-delay="200">
           <div class="card h-100 border-0 project-card" style="border-top: 6px solid #fd7e14;">
             <div class="card-body">
@@ -185,7 +159,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -209,11 +182,20 @@
     <!-- Contact -->
     <section id="contact" class="mb-5" data-aos="fade-up">
       <h2 class="fw-bold section-title text-center mb-4">Contact Me</h2>
-      <form method="POST" action="/contact" class="row g-3 justify-content-center">
-        <div class="col-md-4"><input type="text" class="form-control" name="name" placeholder="Your Name" required /></div>
-        <div class="col-md-4"><input type="email" class="form-control" name="email" placeholder="Your Email" required /></div>
-        <div class="col-8"><textarea class="form-control" name="message" rows="4" placeholder="Your Message..." required></textarea></div>
-        <div class="col-8 text-center"><button type="submit" class="btn btn-primary">Send Message</button></div>
+      <form method="POST" action="https://formspree.io/f/xnnvwdoo" class="row g-3 justify-content-center">
+        <div class="col-md-4">
+          <input type="text" class="form-control" name="name" placeholder="Your Name" required />
+        </div>
+        <div class="col-md-4">
+          <input type="email" class="form-control" name="email" placeholder="Your Email" required />
+        </div>
+        <div class="col-8">
+          <textarea class="form-control" name="message" rows="4" placeholder="Your Message..." required></textarea>
+        </div>
+        <input type="hidden" name="_next" value="https://flask-portfolio-2huf.onrender.com#contact" />
+        <div class="col-8 text-center">
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </div>
       </form>
     </section>
 
