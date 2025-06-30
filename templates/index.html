@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- Bootstrap Icons (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
   <style>
     :root {
       --bg-color: #f8f9fa;
@@ -163,14 +166,261 @@
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="mb-5" data-aos="fade-up">
-      <h2 class="fw-bold section-title">Skills</h2>
-      <div class="row text-center">
-        <div class="col-md-4 mb-2"><span class="badge bg-secondary">Python • SQL • JS</span></div>
-        <div class="col-md-4 mb-2"><span class="badge bg-secondary">Power BI • Git • Docker</span></div>
-        <div class="col-md-4 mb-2"><span class="badge bg-secondary">Flask • Prometheus • Grafana</span></div>
+    <!-- Skills Section -->
+<section id="skills" class="mb-5" data-aos="fade-up">
+  <h2 class="fw-bold section-title">Skills</h2>
+  <div class="row g-3">
+
+    <!-- Skills Flip Card Section -->
+<section id="skills" class="mb-5" data-aos="fade-up">
+  <h2 class="fw-bold section-title">Skills</h2>
+  <div class="row g-4">
+
+    <!-- Skill Card Template -->
+    <style>
+      .flip-card {
+        background-color: transparent;
+        width: 100%;
+        height: 200px;
+        perspective: 1000px;
+      }
+
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+      }
+
+      .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 12px;
+        padding: 1rem;
+        box-shadow: 0 8px 24px var(--shadow);
+      }
+
+      .flip-card-front {
+        background-color: var(--card-bg);
+        color: var(--text-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .flip-card-back {
+        background-color: var(--card-bg);
+        color: var(--text-color);
+        transform: rotateY(180deg);
+        font-size: 0.9rem;
+        text-align: left;
+      }
+    </style>
+
+    <!-- Each Skill Flip Card -->
+    <div class="col-md-3 col-sm-6">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-file-code-fill fs-2 text-primary mb-2"></i>
+            <h6>Python</h6>
+          </div>
+          <div class="flip-card-back">
+            <p>✔ Worked on Python automation in Ignio project.<br>
+            ✔ Experience with NumPy, Pandas for data manipulation.<br>
+            ✔ Built Flask app for monitoring & reporting.</p>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-database-check fs-2 text-success mb-2"></i>
+            <h6>MySQL / SQL</h6>
+          </div>
+          <div class="flip-card-back">
+            <p>✔ Created complex queries for access provisioning.<br>
+            ✔ Used SQL for IAM backend & data validation.<br>
+            ✔ Wrote triggers and reports for automation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-bar-chart-line-fill fs-2 text-warning mb-2"></i>
+            <h6>Power BI</h6>
+          </div>
+          <div class="flip-card-back">
+            <p>✔ Built MTD, YoY dashboards with slicers.<br>
+            ✔ Integrated Excel data for KPIs.<br>
+            ✔ Visualized insights for business reports.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-git fs-2 text-danger mb-2"></i>
+            <h6>Git & GitHub</h6>
+          </div>
+          <div class="flip-card-back">
+            <p>✔ Maintained DevOps & portfolio repo.<br>
+            ✔ Managed feature & test branches.<br>
+            ✔ Used Git CLI for version control.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-box-seam fs-2 text-info mb-2"></i>
+            <h6>Docker</h6>
+          </div>
+          <div class="flip-card-back">
+            <p>✔ Containerized Flask app for monitoring.<br>
+            ✔ Created Dockerfile for deployments.<br>
+            ✔ Tested locally with Docker Desktop.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-cloud-upload-fill fs-2 text-secondary mb-2"></i>
+            <h6>Prometheus & Grafana</h6>
+          </div>
+          <div class="flip-card-back">
+            <p>✔ Set up app metrics via Prometheus client.<br>
+            ✔ Visualized alerts & uptime in Grafana.<br>
+            ✔ Monitoring for cloud-based Flask app.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-braces fs-2 text-primary mb-2"></i>
+            <h6>BeanShell (IAM)</h6>
+          </div>
+          <div class="flip-card-back">
+            <p>✔ Customized workflows in Saviynt.<br>
+            ✔ Wrote BeanShell for attribute mapping.<br>
+            ✔ Deployed rules for provisioning tasks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-terminal fs-2 text-success mb-2"></i>
+            <h6>Flask & API</h6>
+          </div>
+          <div class="flip-card-back">
+            <p>✔ Developed web apps with Flask.<br>
+            ✔ Created API for login + SNOW ticketing.<br>
+            ✔ Used Flask routes with Formspree/SMTP.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+    <!-- Education Section -->
+<section id="education" class="mb-5" data-aos="fade-up">
+  <h2 class="fw-bold section-title">Education</h2>
+  <div class="row g-4">
+
+    <!-- MCA -->
+    <div class="col-md-6">
+      <div class="card border-0 shadow-sm h-100" style="background-color: var(--card-bg); color: var(--text-color);">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="bi bi-mortarboard-fill text-primary"></i> Master of Computer Applications
+          </h5>
+          <p class="card-text mb-1">Madhav Institute of Technology & Science (MITS), Gwalior</p>
+          <small class="text-muted">2017 – 2020</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- B.Sc -->
+    <div class="col-md-6">
+      <div class="card border-0 shadow-sm h-100" style="background-color: var(--card-bg); color: var(--text-color);">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="bi bi-journal-bookmark-fill text-success"></i> Bachelor of Science (Mathmatics)
+          </h5>
+          <p class="card-text mb-1">Jiwaji University</p>
+          <small class="text-muted">2014 – 2017</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12th -->
+    <div class="col-md-6">
+      <div class="card border-0 shadow-sm h-100" style="background-color: var(--card-bg); color: var(--text-color);">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="bi bi-book-half text-warning"></i> 12th (PCM)
+          </h5>
+          <p class="card-text mb-1">MP Board</p>
+          <small class="text-muted">2011 – 2012</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10th -->
+    <div class="col-md-6">
+      <div class="card border-0 shadow-sm h-100" style="background-color: var(--card-bg); color: var(--text-color);">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="bi bi-book text-danger"></i> 10th
+          </h5>
+          <p class="card-text mb-1">MP Board</p>
+          <small class="text-muted">2009 – 2010</small>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
     <!-- Resume -->
     <section class="mb-5 text-center" data-aos="fade-up">
