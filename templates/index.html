@@ -530,5 +530,53 @@
       document.body.classList.add("dark-mode");
     }
   </script>
+
+<script>
+  // Initialize AOS animation
+  AOS.init();
+
+  // Load dark mode from localStorage
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+    localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+  }
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+  }
+
+  // Form handling to prevent resubmission and show thank you
+  const form = document.querySelector("form");
+  const thankYouMessage = document.createElement("div");
+  thankYouMessage.classList.add("alert", "alert-success", "mt-3");
+  thankYouMessage.innerHTML = "✅ Thank you! Your message has been sent.";
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // Prevent default form submit
+    const formData = new FormData(form);
+    const action = form.getAttribute("action");
+
+    try {
+      const response = await fetch(action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        form.reset(); // clear form data
+        form.parentElement.appendChild(thankYouMessage); // show message
+        history.replaceState(null, null, location.pathname); // remove POST data from history
+      } else {
+        alert("❌ Failed to send message. Try again.");
+      }
+    } catch (error) {
+      alert("❌ Error occurred. Try again.");
+    }
+  });
+</script>
+
+
 </body>
 </html>
