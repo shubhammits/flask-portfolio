@@ -9,8 +9,73 @@
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <!-- Google Font (Add this in <head>) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
 
   <style>
+
+    #contact-details i {
+  min-width: 32px;
+}
+
+
+    body {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .experience-box {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px var(--shadow);
+    padding: 1.5rem;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+
+  .experience-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .experience-logo {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  margin-right: 1rem;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.3));
+}
+
+  .experience-title {
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+
+  .experience-role,
+  .experience-duration {
+    font-size: 0.95rem;
+    color: gray;
+  }
+
+  body.dark-mode .experience-role,
+  body.dark-mode .experience-duration {
+    color: #bbb;
+  }
+
+  .experience-list {
+    font-size: 0.93rem;
+    margin-top: 0.5rem;
+  }
+
+  .section-title {
+    border-bottom: 2px solid var(--link-color);
+    padding-bottom: 5px;
+    display: inline-block;
+  }
+
     :root {
       --bg-color: #f8f9fa;
       --text-color: #212529;
@@ -165,80 +230,8 @@
       color: var(--link-color);
       border-color: var(--link-color);
     }
-  </style>
-</head>
-<body>
 
-  <!-- 🔔 Under Construction Banner -->
-  <div id="under-progress">
-    <marquee behavior="scroll" direction="left">
-      ⚠️ <span class="blinking">NOTE:</span> This website is still under development. Features are being added.
-    </marquee>
-  </div>
-
-  <button onclick="toggleDarkMode()" class="btn btn-sm btn-outline-secondary btn-toggle">🌙</button>
-
-  <!-- The rest of your page (About, Projects, Skills, Education, Resume, Contact, Footer) -->
-  <!-- Paste that content here as it is, no change needed, it was already good -->
-  <!-- Header -->
-  <header class="bg-primary text-white text-center py-5 mb-4">
-    <div class="container d-flex flex-column flex-sm-row align-items-center justify-content-center gap-4">
-      <img src="{{ url_for('static', filename='shubham.jpg') }}" alt="Shubham" class="profile-img" />
-      <div>
-        <h1 class="mb-1">Shubham Nagariya</h1>
-        <p class="lead mb-0">Python Developer • Data Analyst • DevOps Enthusiast</p>
-      </div>
-    </div>
-  </header>
-
-  <div class="container">
-
-    <!-- About -->
-    <section id="about" class="mb-5" data-aos="fade-up">
-      <h2 class="fw-bold section-title">About Me</h2>
-      <p>I am Shubham, an IT professional with 3.6+ years at TCS in Python automation, IAM & DevOps tools. I love building things with Python, exploring monitoring systems, and simplifying complex processes through automation.</p>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="mb-5">
-      <h2 class="fw-bold section-title" data-aos="fade-right">Projects</h2>
-      <div class="row">
-        <div class="col-md-4 mb-4" data-aos="zoom-in-up">
-          <div class="card h-100 border-0 project-card" style="border-top: 6px solid #0d6efd;">
-            <div class="card-body">
-              <h5 class="card-title">DevOps Monitoring App</h5>
-              <p class="card-text">Flask + Docker + Prometheus + Grafana for auto-monitoring cloud apps.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4" data-aos="zoom-in-up" data-aos-delay="100">
-          <div class="card h-100 border-0 project-card" style="border-top: 6px solid #20c997;">
-            <div class="card-body">
-              <h5 class="card-title">Power BI Dashboard</h5>
-              <p class="card-text">Sales KPIs, YoY & MTD analytics with slicers and filters.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4" data-aos="zoom-in-up" data-aos-delay="200">
-          <div class="card h-100 border-0 project-card" style="border-top: 6px solid #fd7e14;">
-            <div class="card-body">
-              <h5 class="card-title">IAM Automation</h5>
-              <p class="card-text">Automated provisioning with SQL + BeanShell in IAM systems.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- Skills Flip Card Section -->
-<section id="skills" class="mb-5" data-aos="fade-up">
-  <h2 class="fw-bold section-title">Skills</h2>
-  <div class="row g-4">
-
-    <!-- Skill Card Template -->
-    <style>
-      .flip-card {
+    .flip-card {
         background-color: transparent;
         width: 100%;
         height: 200px;
@@ -285,7 +278,139 @@
         font-size: 0.9rem;
         text-align: left;
       }
-    </style>
+
+    .section-title {
+  border-bottom: 2px solid var(--link-color);
+  padding-bottom: 10px;
+  display: inline-block;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+  </style>
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();  // ✅ Only once
+</script>
+<body>
+
+  <!-- 🔔 Under Construction Banner -->
+  <div id="under-progress">
+    <marquee behavior="scroll" direction="left">
+      ⚠️ <span class="blinking">NOTE:</span> This website is still under development. Features are being added.
+    </marquee>
+  </div>
+
+  <button onclick="toggleDarkMode()" class="btn btn-sm btn-outline-secondary btn-toggle">🌙</button>
+
+  <!-- The rest of your page (About, Projects, Skills, Education, Resume, Contact, Footer) -->
+  <!-- Paste that content here as it is, no change needed, it was already good -->
+  <!-- Header
+  <header class="bg-primary text-white text-center py-5 mb-4">
+    <div class="container d-flex flex-column flex-sm-row align-items-center justify-content-center gap-4">
+      <img src="{{ url_for('static', filename='shubham.jpg') }}" alt="Shubham" class="profile-img" />
+      <div>
+        <h1 class="mb-1">Shubham Nagariya</h1>
+        <p class="lead mb-0">Python Developer • Data Analyst • DevOps Enthusiast</p>
+      </div>
+    </div>
+  </header>
+-->
+
+<!-- Header -->
+<!-- Header -->
+<header class="bg-gradient-to-r from-teal-600 via-teal-700 to-violet-700 text-white py-10 shadow-lg">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+
+    <!-- Profile Section -->
+    <div class="flex items-center gap-5">
+      <img src="{{ url_for('static', filename='shubham.jpg') }}" alt="Shubham" class="w-28 h-28 md:w-32 md:h-32 rounded-xl shadow-md object-cover" />
+
+      <div>
+        <h1 class="text-3xl font-bold mb-1">Shubham Nagariya</h1>
+        <p class="text-white/90 text-lg">Python Developer • Data Analyst • DevOps Enthusiast</p>
+
+        <!-- Social Links -->
+        <div class="flex gap-3 mt-3">
+          <a href="https://www.linkedin.com/in/shivom17" target="_blank" class="bg-white/10 hover:bg-white/20 p-2 rounded-full transition">
+            <i class="bi bi-linkedin text-white text-xl"></i>
+          </a>
+          <a href="https://github.com/shubhammits" target="_blank" class="bg-white/10 hover:bg-white/20 p-2 rounded-full transition">
+            <i class="bi bi-github text-white text-xl"></i>
+          </a>
+          <a href="https://medium.com/@shivom17" target="_blank" class="bg-white/10 hover:bg-white/20 p-2 rounded-full transition">
+            <i class="bi bi-medium text-white text-xl"></i>
+          </a>
+          <a href="https://instagram.com/yourusername" target="_blank" class="bg-white/10 hover:bg-white/20 p-2 rounded-full transition">
+            <i class="bi bi-instagram text-white text-xl"></i>
+          </a>
+          <a href="https://kaggle.com/shivom17" target="_blank" class="bg-white/10 hover:bg-white/20 p-2 rounded-full transition">
+            <i class="bi bi-bar-chart-fill text-white text-xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+
+
+<main class="max-w-7xl mx-auto px-4 py-6">
+
+    <div class="container">
+
+    <!-- About -->
+    <section id="about" class="mb-5" data-aos="fade-up">
+      <h2 class="text-2xl font-semibold border-b-2 border-blue-500 inline-block mb-4">About Me</h2>
+
+      <p>I am Shubham, an IT professional with 3.6+ years at TCS in Python automation, IAM & DevOps tools. I love building things with Python, exploring monitoring systems, and simplifying complex processes through automation.</p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="mb-5">
+      <h2 class="text-2xl font-semibold border-b-2 border-blue-500 inline-block mb-4">Projects</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4" data-aos="zoom-in-up">
+          <div class="card h-100 border-0 project-card" style="border-top: 6px solid #0d6efd;">
+            <div class="card-body">
+              <h5 class="card-title">DevOps Monitoring App</h5>
+              <p class="card-text">Flask + Docker + Prometheus + Grafana for auto-monitoring cloud apps.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="zoom-in-up" data-aos-delay="100">
+          <div class="card h-100 border-0 project-card" style="border-top: 6px solid #20c997;">
+            <div class="card-body">
+              <h5 class="card-title">Power BI Dashboard</h5>
+              <p class="card-text">Sales KPIs, YoY & MTD analytics with slicers and filters.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="zoom-in-up" data-aos-delay="200">
+          <div class="card h-100 border-0 project-card" style="border-top: 6px solid #fd7e14;">
+            <div class="card-body">
+              <h5 class="card-title">IAM Automation</h5>
+              <p class="card-text">Automated provisioning with SQL + BeanShell in IAM systems.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <!-- Resume -->
+    <section class="mb-5 text-center" data-aos="fade-up">
+      <a href="{{ url_for('static', filename='resume.pdf') }}" download class="btn btn-outline-primary">
+        📄 Download Resume
+      </a>
+    </section>
+
+    <!-- Skills Flip Card Section -->
+<section id="skills" class="mb-5" data-aos="fade-up">
+  <h2 class="text-2xl font-semibold border-b-2 border-blue-500 inline-block mb-4">Skills</h2>
+  <div class="row g-4">
 
     <!-- Each Skill Flip Card -->
     <div class="col-md-3 col-sm-6">
@@ -423,7 +548,7 @@
 
     <!-- Education Section -->
 <section id="education" class="mb-5" data-aos="fade-up">
-  <h2 class="fw-bold section-title">Education</h2>
+  <h2 class="text-2xl font-semibold border-b-2 border-blue-500 inline-block mb-4">Education</h2>
   <div class="row g-4">
 
     <!-- MCA -->
@@ -482,16 +607,113 @@
 </section>
 
 
-    <!-- Resume -->
-    <section class="mb-5 text-center" data-aos="fade-up">
-      <a href="{{ url_for('static', filename='resume.pdf') }}" download class="btn btn-outline-primary">
-        📄 Download Resume
-      </a>
-    </section>
+
+<section id="experience" class="py-5">
+  <div class="container">
+    <h2 class="text-2xl font-semibold border-b-2 border-blue-500 inline-block mb-4">Experience</h2>
+
+    <!-- Experience 1 - TCS -->
+    <div class="experience-box d-flex flex-column flex-md-row align-items-start gap-4 mb-4" data-aos="fade-up">
+      <div class="flex-shrink-0">
+        <img src="{{ url_for('static', filename='tcs-logo.png') }}" alt="TCS Logo" class="experience-logo" />
+
+      </div>
+
+      <div>
+        <h4 class="experience-title mb-1">Tata Consultancy Services (TCS)</h4>
+        <p class="experience-role mb-1"><strong>Role:</strong> System Engineer</p>
+        <p class="experience-duration mb-2"><strong>Duration:</strong> Dec 2021 – Present</p>
+        <p class="mb-1"><strong>Key Highlights:</strong></p>
+        <ul class="experience-list ps-3 mb-0">
+          <li>Worked on IAM tools (Saviynt, BeanShell, SQL) for access control</li>
+          <li>Developed Flask-based Python automation scripts</li>
+          <li>Set up Prometheus + Grafana monitoring dashboards</li>
+          <li>Created Power BI dashboards using Excel and SQL datasets</li>
+          <li>Handled provisioning workflows, user entitlement, and support</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Experience 2 - Optional Future Company -->
+    <!--
+    <div class="experience-box d-flex flex-column flex-md-row align-items-start gap-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+      <div class="flex-shrink-0">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732228.png" alt="Next Company Logo" class="experience-logo" />
+      </div>
+      <div>
+        <h4 class="experience-title mb-1">Your Future Company</h4>
+        <p class="experience-role mb-1"><strong>Role:</strong> DevOps/Data Engineer</p>
+        <p class="experience-duration mb-2"><strong>Duration:</strong> 2025 – Future</p>
+        <p class="mb-1"><strong>Key Highlights:</strong></p>
+        <ul class="experience-list ps-3 mb-0">
+          <li>Designed CI/CD pipelines using Jenkins & GitHub Actions</li>
+          <li>Built scalable microservices using Docker & Kubernetes</li>
+          <li>Integrated security policies in infrastructure as code</li>
+        </ul>
+      </div>
+    </div>
+    -->
+
+  </div>
+</section>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+
+      <!-- Contact Details Section -->
+
+<section id="contact-details" class="mb-5" data-aos="fade-up">
+  <h2 class="text-2xl font-semibold border-b-2 border-blue-500 inline-block mb-4">Contact Details</h2>
+  <div class="p-4 rounded-4 shadow-sm" style="background-color: var(--card-bg); color: var(--text-color); border-left: 5px solid #20c997;">
+    <div class="row g-3 align-items-center">
+
+      <!-- Phone -->
+      <div class="col-md-6 d-flex align-items-center">
+        <i class="bi bi-telephone-fill text-primary fs-4 me-3"></i>
+        <div>
+          <p class="mb-0 fw-semibold">Phone</p>
+          <small class="text-muted">+91 7477253723</small>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="col-md-6 d-flex align-items-center">
+        <i class="bi bi-envelope-fill text-danger fs-4 me-3"></i>
+        <div>
+          <p class="mb-0 fw-semibold">Email</p>
+          <small class="text-muted">shubhamnagariya1994@gmail.com</small>
+        </div>
+      </div>
+
+      <!-- LinkedIn -->
+      <div class="col-md-6 d-flex align-items-center">
+        <i class="bi bi-linkedin text-info fs-4 me-3"></i>
+        <div>
+          <p class="mb-0 fw-semibold">LinkedIn</p>
+          <a href="https://in.linkedin.com/in/shivom17" target="_blank" class="text-decoration-none text-info">linkedin.com/in/shivom17</a>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="col-md-6 d-flex align-items-center">
+        <i class="bi bi-geo-alt-fill text-warning fs-4 me-3"></i>
+        <div>
+          <p class="mb-0 fw-semibold">Location</p>
+          <small class="text-muted">Indore, Madhya Pradesh</small>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
     <!-- Contact -->
     <section id="contact" class="mb-5" data-aos="fade-up">
-      <h2 class="fw-bold section-title text-center mb-4">Contact Me</h2>
+      <h2 class="text-2xl font-semibold border-b-2 border-blue-500 inline-block mb-4">Contact Me</h2>
       <form method="POST" action="https://formspree.io/f/xnnvwdoo" class="row g-3 justify-content-center">
         <div class="col-md-4">
           <input type="text" class="form-control" name="name" placeholder="Your Name" required />
@@ -510,7 +732,7 @@
     </section>
 
   </div>
-
+</main>
   <footer class="text-center py-4">
     <small>&copy; 2025 Shubham Nagariya. All rights reserved.</small>
   </footer>
@@ -518,7 +740,20 @@
   <!-- JS Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
+
+<script>
+
+  AOS.init();
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+    }
+
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark-mode");
+    }
+
     AOS.init();
 
     function toggleDarkMode() {
@@ -529,9 +764,7 @@
     if (localStorage.getItem("theme") === "dark") {
       document.body.classList.add("dark-mode");
     }
-  </script>
 
-<script>
   // Initialize AOS animation
   AOS.init();
 
